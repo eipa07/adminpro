@@ -8,22 +8,22 @@
             <div 
               class="progress-bar progress-bar-striped progress-bar-animated" 
               role="progressbar" 
-              [attr.ariaValuenow]="progreso"
+              [attr.ariaValuenow]="progreso1"
               aria-valuenow="75" 
               aria-valuemin="0" 
               aria-valuemax="100" 
-              [style.width]="progreso + '%'"></div>
+              [style.width]="progreso1 + '%'"></div>
           </div>
           <br>
           <div class="progress">
             <div 
               class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
               role="progressbar" 
-              [attr.ariaValuenow]="progreso"
+              [attr.ariaValuenow]="progreso2"
               aria-valuenow="75" 
               aria-valuemin="0" 
               aria-valuemax="100" 
-              [style.width]="progreso + '%'"></div>
+              [style.width]="progreso2 + '%'"></div>
           </div>
 
         </div>
@@ -36,7 +36,8 @@
   <div class="col-6">
     <div class="card">
         <div class="card-body">
-          <app-incrementador></app-incrementador>
+          <!-- Esta es una forma de hacerlo,por medio de una funcion que se toma con la declaracion del @Output (cambioValor)="actualizar( $event )"-->
+          <app-incrementador (cambioValor)="progreso1 = $event" nombre="Progress Azul" [progreso]="progreso1"></app-incrementador>
         </div>
     </div>
   </div>
@@ -44,7 +45,7 @@
   <div class="col-6">
       <div class="card">
           <div class="card-body">
-            <app-incrementador></app-incrementador>
+            <app-incrementador (cambioValor)="progreso2 = $event" nombre="Progress Verde" [progreso]="progreso2"></app-incrementador>
           </div>
       </div>
     </div>

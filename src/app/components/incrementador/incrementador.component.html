@@ -6,7 +6,10 @@
       <i class="mdi mdi-minus"></i>
     </button>
   </span>
-  <input type="text" class="form-control" [(ngModel)]="progreso">
+  <input  type="number" class="form-control" #txtProgress
+          [(ngModel)]="progreso" 
+          (ngModelChange)="onChanges( $event )"
+          min="0" max="100" >
   <span class="input group-btn">
       <button class="btn-primary" type="button" (click)="cambiarValor(+5)">
         <i class="mdi mdi-plus"></i>
